@@ -1,0 +1,25 @@
+
+
+.search-bar-container {
+  display: flex;
+  flex-direction: inline;
+  width: 30%;
+ flex-direction:row;
+ 
+
+}
+
+
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 768px) {
+  .search-bar-container {
+    width: 40%;
+    margin-left: 5%;
+  }
+
+  .user-table {
+    width: 40%;
+    margin-top: 20px;
+  }
+}

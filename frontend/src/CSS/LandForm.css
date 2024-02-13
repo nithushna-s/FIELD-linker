@@ -1,0 +1,54 @@
+
+
+.page{
+  width: 40vw;
+  background-color: hsl(231, 18%, 29%) ;
+  border: 2px solid #f4f6f8;
+  margin-left: 25%;
+  margin-top: 5%;
+  color: white;
+
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  padding: 1%;
+}
+
+h4 {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+ 
+
+}
+
+.form-group {
+  display: none;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.form-group.active {
+  display: block;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input[type="file"] {
+  display: inline-block; 
+  margin-right: 10px; 
+}
+
+input.invalid {
+  border: 2px solid #ff0000;
+}
+
+
+

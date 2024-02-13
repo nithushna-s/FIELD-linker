@@ -1,0 +1,129 @@
+/* AdminLandDetails.css */
+
+.admin-land-details {
+
+  width: 70%;
+}
+
+.h1 {
+text-align: center;
+  margin-top:5%;
+  margin-left: 50%;
+
+}
+
+.search-bar-container {
+  text-align: center;
+  margin-bottom: 15px;
+  
+  margin-left: 50%;
+}
+
+.search-bar-container button {
+  background-color: darkblue;
+  margin-top: 10%;
+  padding: 2px;
+  border: none;
+  cursor: pointer;
+}
+
+.search-bar-container input {
+  width: 70%; 
+  padding: 3px;
+}
+
+.create-button {
+  background-color: green;
+  color: white;
+  padding: 8px 7px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+
+
+
+
+
+
+.land-details-table img {
+  max-width: 100px;
+  height: auto;
+}
+
+.land-details-table .actions button {
+  margin-right: 5px;
+}
+
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 70%;
+  max-height: 50%;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  margin-bottom: 15px;
+
+  flex: 0 0 48%;
+}
+
+.column label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.column input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.popup button {
+  background-color: #28a745; /* Green color, you can change it */
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 15px;
+  margin-left: 90%;
+}
+
+
+
+.popup button.cancel-button {
+  background-color: #dc3545; /* Red color for cancel button */
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 15px;
+  margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.table-container {
+
+width: 70%; 
+ overflow-y: auto; /* Enable vertical scrollbar when content overflows */
+}
+

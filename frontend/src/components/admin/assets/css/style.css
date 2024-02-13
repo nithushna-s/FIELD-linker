@@ -1,0 +1,84 @@
+/* style.css */
+
+.container1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: darkblue;
+  color: white;
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+}
+.adnm{
+  margin-left: 25%;
+}
+.nm{
+  margin-left: 30%;
+}
+.navigation {
+  list-style: none;
+  display: flex;
+  margin-right: 10%;
+}
+
+.navigation li {
+  margin-right: 20px;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.toggle {
+  cursor: pointer;
+  display: none;
+}
+
+/* Add styles for active state */
+.container1.active .navigation {
+  display: flex;
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+  .container1 {
+    padding: 15px;
+  }
+
+  .navigation {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background-color: darkblue;
+    z-index: 1;
+    font-size: large;
+  }
+
+  .navigation.active {
+    display: flex;
+  }
+
+  .navigation li {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    width: 100%; 
+    box-sizing: border-box; 
+  }
+
+  .toggle {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: larger;
+    height: 40%;
+
+  }
+}
