@@ -1,36 +1,26 @@
 
 
-/* Container for the entire AgrilandDetail component */
 .agriland-detail-container {
-    max-width: 800px;
+    max-width: 70%;
     margin: 0 auto;
-    margin-top: 6%;
+    margin-top: 5%;
     padding: 20px;
     margin-bottom: 10%;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     text-align: justify;
-    border-radius: 8px;
+    /* border-radius: 8px; */
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
   }
   
   /* Heading style */
   .land-detail-heading {
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
   }
   
-  /* Style for the land image container */
-  .land-image-container {
-    margin-bottom: 20px;
-    
-  }
+
   
-  /* Style for the land image */
-  .land-image {
-    width: 400vw;
-    height: 30vh;
-  }
   
   /* Style for the land details */
   .land-details p {
@@ -47,7 +37,7 @@
   
   /* Style for the submit form button */
   .submit-form-button {
-    background-color: #28a745;
+    background-color: #137077;
     color: #fff;
     border: none;
     padding: 10px 15px;
@@ -101,7 +91,7 @@
   
   /* Style for the submit button */
   .modal-content button {
-    background-color: #4caf50;
+    background-color: #137077;
     color: #fff;
     padding: 10px;
     border: none;

@@ -192,7 +192,7 @@ const Navbar = ({ isAuthenticated, handleLogout }) => {
               </Link>
             </li>
           )}
-            <li id="google_translate_element"></li>
+            {/* <li id="google_translate_element"></li> */}
         </ul>
       </nav>
     </div>

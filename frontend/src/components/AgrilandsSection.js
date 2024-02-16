@@ -55,8 +55,10 @@ const AgrilandsSection = () => {
   return (
     <>
       <Navbar />
-      <div className="container" style={{ marginTop: '8%', textAlign: 'start', fontFamily: 'sans-serif' }}>
-        <h2 style={{ fontFamily: 'revert', color: '#137077', textAlign: 'center' }}>Discover Cultivation Lands</h2>
+      <div className="container" style={{ marginTop: '8%', textAlign: 'start',       fontFamily: 'Raleway,fantasy'
+ }}>
+        <h2 style={{ fontFamily: 'Raleway,fantasy',
+ color: '#137077', textAlign: 'center' }}>Discover Cultivation Lands</h2>
         <br /> <br />
 
         {/* Filter Form */}

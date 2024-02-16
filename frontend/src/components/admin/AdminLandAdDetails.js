@@ -65,7 +65,7 @@ const AdminLandDetails = () => {
  
   const handleDelete = async (landId) => {
     try {
-      if (window.confirm('Are you sure you want to soft delete this land?')) {
+      if (window.confirm('Are you sure you want to  this land?')) {
         const response = await axios.patch(`http://localhost:7000/api/lands/${landId}`);
         const updatedLands = lands.map(l => (l._id === landId ? response.data : l));
         setLands(updatedLands);
@@ -157,8 +157,8 @@ const AdminLandDetails = () => {
             <th>Phone Numbers</th>
             <th>Other Numbers</th>
             <th>Address</th>
+            <th> Status</th>
             <th>Timestamp</th>
-            <th>Admin-Details</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -169,7 +169,7 @@ const AdminLandDetails = () => {
               <td>{land._id}</td>
               <td>{land.landType}</td>
               <td>{land. rentOrLease}</td>
-              <td>{land.location}</td>
+              <td >{land.location}</td>
               <td>{land.landSize}</td>
               <td>{land.rentOrLeasePrice}</td>
               <td>{land.waterDetails}</td>
@@ -181,8 +181,8 @@ const AdminLandDetails = () => {
               <td>{land.phoneNumbers}</td>
               <td>{land.OtherNumbers}</td>
               <td>{land.address}</td>
+              <td>{land. status}</td>
               <td>{land.timestamps}</td>
-              <td>{land.ispost}</td>
               <td>
                 <button onClick={() => handleEdit(land)} className="btn btn-primary">Edit</button>
                 <button
@@ -319,6 +319,14 @@ const AdminLandDetails = () => {
           type="text"
           value={updateData.address || selectedLand?.address || ''}
           onChange={(e) => setUpdateData({ ...updateData, address: e.target.value })}
+        />
+      </div>
+      <div className="column">
+        <label>Status:</label>
+        <input
+          type="text"
+          value={updateData.status || selectedLand?.status || ''}
+          onChange={(e) => setUpdateData({ ...updateData, status: e.target.value })}
         />
       </div>
       <div className="column">

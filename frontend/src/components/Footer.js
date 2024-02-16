@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div>
       {/* CTA Section */}
-      <section className="cta" style={{fontFamily:'sans-serif'}}  >
+      <section className="cta" style={{fontFamily: 'Raleway,fantasy'}}  >
         <div className="container" >
           <div className="cta-card" style={{background:'white' ,color:'#137077'}}>
             <div className="card-content" >
@@ -30,7 +30,8 @@ Explore Lands
       </section>
 
       {/* Footer Section */}
-      <footer className="footer" style={{fontFamily:'sans-serif' ,background:'#137077'}}>
+      <footer className="footer" style={{      fontFamily: 'Raleway,fantasy'
+ ,background:'#137077'}}>
         <div className="footer-top">
           <div className="container">
             

@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/login.component';
 import SignUp from './components/ signup.component';
-import PostAdForm from './components/PostAdForm';
+import AdPostingPage  from './components/AdPostingPage';
 import ContactForm from './components/ContactForm';
 import AdminHome from './components/admin/AdminHome';
 import Home from './components/fieldhome';
@@ -18,7 +18,7 @@ function App() {
         <Route path="/" element={<Home />} /> 
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/post-adform" element={<PostAdForm />} />
+        <Route path="/post-adform" element={<AdPostingPage  />} />
         <Route path="/contact" element={<ContactForm />} />
         <Route path="/cultivatione-lands-Section" element={<AgrilandsSection />} />
         <Route path="/agriland/:id" element={<AgrilandDetail />} />

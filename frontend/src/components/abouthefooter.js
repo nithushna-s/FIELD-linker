@@ -11,7 +11,7 @@ const Footer = () => {
     <div>
   
  {/* Footer Section */}
- <footer className="footer" style={{fontFamily:'sans-serif' ,background:'#137077' }}>
+ <footer className="footer" style={{fontFamily: 'Raleway,fantasy',background:'#137077' }}>
         <div className="footer-top">
           <div className="container">
           <div class="footer-brand">

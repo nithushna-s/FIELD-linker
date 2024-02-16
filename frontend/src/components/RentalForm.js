@@ -32,7 +32,7 @@ const RentalForm = ({ landId, onCloseModal }) => {
   };
 
   return (
-    <form onSubmit={handleFormSubmit} style={{background:'white',padding:'40px'}}>
+    <form onSubmit={handleFormSubmit} style={{background:'white',padding:'40px',      fontFamily: 'Raleway,fantasy'}}>
                 <h4>Land Rental Request</h4>
 
       <label>

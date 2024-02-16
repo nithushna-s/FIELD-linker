@@ -1,4 +1,3 @@
-// Import necessary modules
 const express = require('express');
 const router = express.Router();
 const cloudinary = require('cloudinary').v2;

@@ -18,9 +18,11 @@ const signup = async (req, res) => {
     const user = new User({ firstName, lastName, email, password: hashedPassword, isAdmin });
     await user.save();
 
+    // Create JWT token
     const token = jwt.sign({ userId: user._id, email: user.email, isAdmin: user.isAdmin }, secretKey, { expiresIn: '1h' });
 
-    res.cookie('token', token, { httpOnly: true, maxAge: 360 });
+    // Set token as a cookie
+    res.cookie('token', token, { httpOnly: true, maxAge: 3600000 }); // maxAge is in milliseconds (1 hour)
 
     res.json({ message: 'Signup successful', token });
   } catch (error) {
@@ -29,32 +31,43 @@ const signup = async (req, res) => {
   }
 };
 
+// User login
 const login = async (req, res) => {
   try {
-    const { email, password } = req.body;
-
-    // Find the user by email
-    const user = await User.findOne({ email });
-
-    // If user not found or password incorrect, return error
-    if (!user || !(await bcrypt.compare(password, user.password))) {
-      return res.status(401).json({ error: 'Invalid email or password' });
-    }
-
-    // Generate JWT token
-    const token = jwt.sign({ userId: user._id, email: user.email, isAdmin: user.isAdmin }, secretKey, { expiresIn: '1h' });
-
-    // Send success response with token and isAdmin flag
-    return res.json({ isAdmin: user.isAdmin });
+     const { email, password } = req.body;
+ 
+     const user = await User.findOne({ email });
+ 
+     if (!user) {
+       return res.status(401).json({ message: 'Invalid credentials' });
+     }
+ 
+     const isPasswordValid = await bcrypt.compare(password, user.password);
+ 
+     if (!isPasswordValid) {
+       return res.status(401).json({ message: 'Invalid credentials' });
+     }
+ 
+    
+     if (user.isAdmin) {
+       console.log('Admin login successful');
+       return res.json({ message: 'Admin login successful', isAdmin: true });
+   
+ 
+     } else {
+ 
+       return res.json({ message: 'User login successful', isAdmin: false });
+     }
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal server error' });
+     console.error(error);
+     res.status(500).json({ error: 'Internal server error' });
   }
-};
+ };
 
 
 const logout = async (req, res) => {
   try {
+    // Clear the token cookie
     res.clearCookie('token');
 
     res.json({ message: 'Logout successful' });

@@ -31,7 +31,8 @@ const SalesForm = ({ landId, onCloseModal }) => {
 
   return (
     
-    <form onSubmit={handleFormSubmit} style={{background:'white',padding:'40px'}}>
+    <form onSubmit={handleFormSubmit} style={{background:'white',padding:'40px',      fontFamily: 'Raleway,fantasy'
+  }}>
         <h4>Land Sale Request</h4>
       <label>
         Name:

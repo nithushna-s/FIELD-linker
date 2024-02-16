@@ -1,5 +1,3 @@
-
-
 const mongoose = require('mongoose');
 const moment = require('moment');
 const rentalSchema = new mongoose.Schema({

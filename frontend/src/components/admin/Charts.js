@@ -32,7 +32,7 @@ const Dashboard = () => {
 
       <div>
         <i className="fas fa-clipboard-list"></i>
-        <h2>Posts</h2>
+        <h2>Land Posts</h2>
         <p>{newPostsCount}</p>
       </div>
 

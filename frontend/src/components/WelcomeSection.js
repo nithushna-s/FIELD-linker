@@ -2,20 +2,20 @@ import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import '../CSS/WelcomeSection.css';
 import heropic from '../Assets/image/field9.avif';
-import home from '../Assets/image/5.jpg';
+import home from '../Assets/image/field18.jpg';
 import favicon from '../Assets/image/farmer-.png';
 
 const WelcomeSection = () => {
   return (
     <>
-      <Carousel style={{ fontFamily: 'Raleway, fantasy', fontSize: '3em' }}>
+      <Carousel style={{ fontFamily: 'Cutive Mono', fontSize: '3em' }}>
         <Carousel.Item>
-          <img className="d-block w-100" src={heropic} alt="First slide" height={950} style={{opacity:'0.8'}}/>
-          <Carousel.Caption className="text-center" style={{ marginBottom: '10%' ,color:'#137077',fontSize:'1.5em'}}>
+          <img className="d-block w-100" src={heropic} alt="First slide" height={972} style={{opacity:'0.8'}}/>
+          <Carousel.Caption className="text-center" style={{ marginBottom: '10%' ,color:'black',fontSize:'1.9em', fontfamily: "Cutive Mono"}}>
             <h1>Discover Cultivation Lands</h1>
             <p>Explore our selection of cultivation lands and start your journey towards your dream farm.</p>
             <a href="/cultivatione-lands-Section">
-              <button className="button-82-pushable" role="button" style={{ marginLeft: '45%' }}>
+              <button className="button-82-pushable" role="button" style={{ marginLeft: '45%' , fontfamily: "Raleway"}}>
                 <span className="button-82-shadow"></span>
                 <span className="button-82-edge"></span>
                 <span className="button-82-front text">View Land</span>
@@ -24,8 +24,8 @@ const WelcomeSection = () => {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img className="d-block w-100" src={home} alt="Second slide" height={950}  style={{opacity:'0.8'}}/>
-          <Carousel.Caption className="text-center" style={{ marginBottom: '15%' ,color:'#137077',fontSize:'1.5em' }}>
+          <img className="d-block w-100" src={home} alt="Second slide" height={972}/>
+          <Carousel.Caption className="text-center" style={{ marginBottom: '10%' ,color:'black',fontSize:'1.9em' }}>
             <h1  style={{fontSize:'37px' }}>Post Your Cultivation Land</h1>
             <p>List your cultivation land for sale or rent and connect with potential buyers or renters.</p>
             <a href="/post-adform">

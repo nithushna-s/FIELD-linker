@@ -85,7 +85,7 @@ const ContactForm = () => {
      marginTop:'5%',
       height: '65vh',
       marginBottom:'10%',
-    fontFamily: 'sans-serif',
+      fontFamily: 'Raleway,fantasy'
 
     }}>
       {/* Combined Container */}
@@ -103,8 +103,8 @@ const ContactForm = () => {
           padding: '40px',
            with:'70%',
             textAlign:'  justify',
-          fontFamily: 'sans-serif',
-          borderRight: '1px solid #ccc',
+            fontFamily: 'Raleway,fantasy',
+            borderRight: '1px solid #ccc',
           background:'#137077',
           color:'white'
         }}>

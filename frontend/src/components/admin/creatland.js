@@ -47,7 +47,6 @@ const PostAdadminForm = () => {
         alert('Form submitted successfully!');
         navigate('/admin/*'); 
       } else {
-        // Handle error case
         alert('Form submission failed. Please try again.');
       }
     } catch (error) {
@@ -76,7 +75,7 @@ const PostAdadminForm = () => {
     < >
       <Navbar />
 
-      <div className="container  justify-content-center align-items-center" style={{fontFamily:'Poppins', fontSize:'1.1rem',marginBottom:'5%',marginTop:'5%', }}>       
+      <div className="container  justify-content-center align-items-center" style={{fontFamily:'Poppins', fontSize:'1.1rem',marginBottom:'5%',marginTop:'7%', }}>       
        <form
           id="regForm"
           encType="multipart/form-data"
@@ -86,7 +85,7 @@ const PostAdadminForm = () => {
           className="p-4 rounded shadow-lg"
        style={{ maxWidth: '70vw', border: '1px solid #ccc', }} 
         >
-          <h1 className="mb-4 " style={{ color:'#137077',textAlign:'center' }} >Post  Ad</h1>
+          <h1 className="mb-4 " style={{ color:'#137077',textAlign:'center' }} >Create Land</h1>
           <br/>
 
           <div className="row" style={{marginLeft:'18%'}}>
@@ -199,9 +198,7 @@ const PostAdadminForm = () => {
                 <input type="text" id="address" name="address" onChange={handleChange} value={formData.address} required className="form-control" />
               </div>
               <div className="w-100 d-flex justify-content-end mb-3">
-              <button type="submit"  style={{padding:'3% 10%', backgroundColor: '#137077',color: 'white',cursor: 'pointer',}}>
-  Post Ad
-</button>
+              <button type="submit"  style={{padding:'3% 10%', backgroundColor: '#137077',color: 'white',cursor: 'pointer',}}>Post Ad</button>
 
           </div>
             </div>

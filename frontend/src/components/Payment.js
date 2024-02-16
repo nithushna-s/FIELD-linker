@@ -3,8 +3,9 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from 'axios';
 
 const PaymentForm = () => {
+  const [showForm, setShowForm] = useState(true); 
   const [cardholderName, setCardholderName] = useState('');
-  const [paymentAmount, setPaymentAmount] = useState(15); 
+  const [paymentAmount, setPaymentAmount] = useState(3500); 
   const [invoiceId, setInvoiceId] = useState(''); 
 
   const stripe = useStripe();
@@ -14,8 +15,6 @@ const PaymentForm = () => {
     e.preventDefault();
 
     if (!stripe || !elements) {
-      // Stripe.js has not yet loaded.
-      // Make sure to disable form submission until Stripe.js has loaded.
       return;
     }
 
@@ -32,7 +31,7 @@ const PaymentForm = () => {
 
     if (error) {
       console.error('Error creating payment method:', error);
-      alert(' Error creating payment method')
+      alert(' Error creating payment method');
     } else {
       try {
         // Make request to create payment
@@ -43,9 +42,10 @@ const PaymentForm = () => {
           invoiceId: invoiceId, 
         });
         console.log(response.data.message);
-        alert(' payment is successful')
+        alert('Payment is successful');
+        alert('Your Ad submitted successfully!');
         // Redirect to success page if payment is successful
-        window.location.href = '/bill';
+        window.location.href = '/post-adform';
       } catch (error) {
         console.error('Error processing payment:', error.message); 
       }
@@ -53,45 +53,60 @@ const PaymentForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ maxWidth: '400px', margin: '0 auto', boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', padding: '20px', borderRadius: '8px' ,marginTop:'10%',fontFamily:' Raleway,fantasy'}} id='payment'>
-      <div style={{ marginBottom: '20px' }}>
-        <label>Cardholder Name:</label>
-        <input
-          type="text"
-          value={cardholderName}
-          onChange={(e) => setCardholderName(e.target.value)}
-          required
-          style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '5px' }}
-        />
+    <> 
+
+    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '15%',marginBottom:'10%' }}>
+      <div className="card1" style={{ boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', padding: '25px', borderRadius: '8px', fontFamily: ' fantasy', marginRight: '20px', width: '40%', height: 'fit-content' }}>
+      <h5 style={{paddingTop:'7%',color:'#137077'}}>Your ad has been submitted for review and<br/> requires a payment before it can be published.</h5>
+        <h2 >Listing Fee</h2><br/>
+        <h6 ><strong>Duration:</strong> 60 days</h6>
+        <h6 ><strong>Item Limit:</strong> 1 item per ad</h6>
+        <h6 ><strong>Cost:</strong> 3500 LKR</h6>
       </div>
-      
-      <div style={{ marginBottom: '20px' }}>
-        <label>Card Details:</label>
-        <CardElement
-          options={{
-            style: {
-              base: {
-                fontSize: '16px',
-                color: '#424770',
-                '::placeholder': {
-                  color: '#aab7c4',
+      {showForm && (
+        <form onSubmit={handleSubmit} style={{ boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', padding: '20px', borderRadius: '8px', fontFamily: 'fantasy', width: '40%', height: 'fit-content' }}>
+          <h2 style={{color:'#137077'}}>Payment Form</h2>
+          <div style={{ marginBottom: '20px' }}>
+            <label>Cardholder Name:</label>
+            <input
+              type="text"
+              value={cardholderName}
+              onChange={(e) => setCardholderName(e.target.value)}
+              required
+              style={{ width: '70%', padding: '10px', border: '1px solid #ccc', borderRadius: '5px' }}
+            />
+          </div>
+          <div style={{ marginBottom: '20px' }}>
+            <label>Card Details:</label>
+            <CardElement
+              options={{
+                style: {
+                  base: {
+                    fontSize: '16px',
+                    color: '#424770',
+                    '::placeholder': {
+                      color: '#aab7c4',
+                    },
+                  },
+                  invalid: {
+                    color: '#9e2146',
+                  },
                 },
-              },
-              invalid: {
-                color: '#9e2146',
-              },
-            },
-          }}
-        />
-      </div>
-      <div style={{ marginBottom: '20px' }}>
-      <span>
-        <label style={{ display: 'inline' }}>Total Amount : </label>
-        <p style={{ display: 'inline' }}>{paymentAmount} LKR</p>
-      </span>
+              }}
+            />
+          </div>
+          <div style={{ marginBottom: '20px' }}>
+            <span>
+              <label style={{ display: 'inline' }}>Total Amount : </label>
+              <p style={{ display: 'inline' }}>{paymentAmount} LKR</p>
+            </span>
+          </div>
+          <button type="submit" style={{ backgroundColor: '#137077', color: '#fff', border: 'none', padding: '1% 7%', borderRadius: '10px', cursor: 'pointer' ,marginLeft:'80%'}}>Pay</button>
+        </form>
+      )}
     </div>
-      <button type="submit" style={{ backgroundColor: '#007bff', color: '#fff', border: 'none', padding: '10px 20px', borderRadius: '5px', cursor: 'pointer' }}>Pay  </button>
-    </form>
+
+    </>
   );
 };
 

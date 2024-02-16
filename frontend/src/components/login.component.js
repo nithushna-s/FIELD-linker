@@ -90,11 +90,11 @@ const Login = () => {
     boxShadow: '0px 14px 80px rgba(34, 35, 58, 0.2)',
     padding: '40px 55px 45px 55px',
     borderRadius: '15px',
-    marginTop: '6%',
+    marginTop: '9%',
     transition: 'all .3s',
-    marginBottom: '6%',
-    fontFamily: 'sans-serif',
-    backgroundImage: 'none', // corrected typo
+    marginBottom: '5%',
+    fontFamily: 'Raleway,fantasy',
+    // backgroundImage: 'none', 
   };
 
   return (
@@ -138,9 +138,9 @@ const Login = () => {
           <button type="submit" className="btn btn-primary" style={{ padding: '7px', border: 'none', background: 'skyblue' }}>
             Submit
           </button>
-        </div>
+        </div><br/>
         <p className="forgot-password text-right">
-          Create a new account <a href="/signup">SignUp</a>
+          Create a new account <a href="/signup" style={{display:'inline'}}>SignUp</a>
         </p>
         <div className="d-grid">
           <button

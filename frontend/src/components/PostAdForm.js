@@ -1,9 +1,8 @@
-// PostAdForm.jsx
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import Navbar from './nav';
-import  Footernext from './abouthefooter'
+import Footernext from './abouthefooter';
+import PaymentForm from './PaymentHead'; 
 
 const PostAdForm = () => {
   const [formData, setFormData] = useState({
@@ -22,10 +21,10 @@ const PostAdForm = () => {
     OtherNumbers: '',
     address: '',
   });
+  const [submitted, setSubmitted] = useState(false); // State to track form submission
 
   const handleChange = (e) => {
     const { name, value, files, type, checked } = e.target;
-
     setFormData((prevData) => ({
       ...prevData,
       [name]: type === 'file' ? files[0] : type === 'checkbox' ? checked : value,
@@ -44,9 +43,7 @@ const PostAdForm = () => {
       const response = await axios.post('http://localhost:7000/api/lands', formDataToSend);
 
       if (response.status === 201) {
-       
-        alert('Form submitted successfully!');
-        window.location.reload();
+        setSubmitted(true); // Set submitted state to true after successful form submission
       } else {
         // Handle error case
         alert('Form submission failed. Please try again.');
@@ -56,16 +53,18 @@ const PostAdForm = () => {
       alert('An error occurred. Please try again later.');
     }
   };
+
   const handleImageBoxClick = () => {
-          document.getElementById('imageInput').click();
+    document.getElementById('imageInput').click();
   };
+
   const imageInputStyles = {
     width: '100%',
-    height: '110px', 
+    height: '110px',
     cursor: 'pointer',
-    backgroundColor: '#ffff', 
+    backgroundColor: '#ffff',
     border: '1px solid #ccc',
-    borderRadius: '4px', 
+    borderRadius: '4px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -77,8 +76,8 @@ const PostAdForm = () => {
     < >
       <Navbar />
 
-      <div className="container  justify-content-center align-items-center" style={{fontFamily:'Poppins', fontSize:'1.1rem',marginBottom:'5%',marginTop:'5%', }}>       
-       <form
+      <div className="container  justify-content-center align-items-center" style={{fontFamily:'Poppins', fontSize:'1.1rem',marginBottom:'5%',marginTop:'6%', }}>       
+      {!submitted ? ( <form
           id="regForm"
           encType="multipart/form-data"
           onSubmit={handleSubmit}
@@ -200,8 +199,8 @@ const PostAdForm = () => {
                 <input type="text" id="address" name="address" onChange={handleChange} value={formData.address} required className="form-control" />
               </div>
               <div className="w-100 d-flex justify-content-end mb-3">
-              <button type="submit"  style={{padding:'3% 10%', backgroundColor: '#137077',color: 'white',cursor: 'pointer',}}>
-  Post Ad
+              <button type="submit"  style={{padding:'3% 15%', backgroundColor: '#137077',color: 'white',cursor: 'pointer',borderRadius:'8%'}}>
+              Submit
 </button>
 
           </div>
@@ -211,7 +210,11 @@ const PostAdForm = () => {
 
           
         </form>
+          ) : ( 
+            <PaymentForm formData={formData} />
+            )}
       </div>
+      
       <Footernext/>
     </>
   );

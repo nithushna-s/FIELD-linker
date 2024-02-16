@@ -1,24 +1,8 @@
-/*-----------------------------------*\
-  #style.css
-\*-----------------------------------*/
 
-/**
- * copyright 2022 codewithsadee
- */
-
-
-
-
-/*-----------------------------------*\
-  #CUSTOM PROPERTY
-\*-----------------------------------*/
 
 :root {
 
-  /**
-   * colors
-   */
-
+ 
   --dark-jungle-green: hsl(188, 63%, 7%);
 
  
@@ -34,12 +18,9 @@
   --black: hsl(0, 0%, 0%);
   --opal: hsl(180, 20%, 62%);
 
-  /**
-   * typography
-   */
 
-   --ff-poppins:  Raleway,fantasy;
-  --ff-poppins: Raleway,fantasy;
+   --ff-poppins:  Raleway;
+  --ff-poppins: Raleway;
 
   --fs-1: 1.875rem;
   --fs-2: 1.5rem;
@@ -59,15 +40,11 @@
 
   --transition: 0.25s ease;
 
-  /**
-   * spacing
-   */
+
 
   --section-padding: 100px;
 
-  /**
-   * shadow
-   */
+ 
 
   --shadow-1: 0 5px 20px 0 hsla(219, 56%, 21%, 0.1);
   --shadow-2: 0 16px 32px hsla(188, 63%, 7%, 0.1);
@@ -118,6 +95,7 @@ html {
 body {
   background: var(--white);
   overflow-x: hidden;
+  font-family: Raleway,fantasy;;
 }
 
 ::-webkit-scrollbar {

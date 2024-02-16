@@ -1,27 +1,20 @@
-/* AdminLandDetails.css */
 
-.admin-land-details {
-
-  width: 70%;
-}
 
 .h1 {
 text-align: center;
-  margin-top:5%;
-  margin-left: 50%;
-
+  margin-top:8%;
 }
 
 .search-bar-container {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   
   margin-left: 50%;
 }
 
 .search-bar-container button {
   background-color: darkblue;
-  margin-top: 10%;
+  margin-top: 8%;
   padding: 2px;
   border: none;
   cursor: pointer;
@@ -35,7 +28,7 @@ text-align: center;
 .create-button {
   background-color: green;
   color: white;
-  padding: 8px 7px;
+  padding: 9px 7px;
   border: none;
   cursor: pointer;
   margin-left: 10px;
@@ -43,14 +36,50 @@ text-align: center;
 
 
 
+.land-details-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: auto;
+}
 
+.land-details-table th,
+.land-details-table td {
+  padding: 4px;
+  text-align: left;
+}
 
+.land-details-table th {
+  background-color: #f2f2f2;
+  position: sticky;
+  top: 0;
+  
+}
 
+.land-details-table th:first-child,
+.land-details-table td:first-child {
+  min-width: 100px; 
+}
 
-.land-details-table img {
+.land-details-table th:not(:first-child),
+.land-details-table td:not(:first-child) {
+  width: 100px; 
+}
+
+.img img {
   max-width: 100px;
   height: auto;
 }
+
+.admin-land-details {
+  width: 95%;
+  overflow-x: auto; 
+}
+
+
+
+
+
+
 
 .land-details-table .actions button {
   margin-right: 5px;
@@ -73,11 +102,12 @@ text-align: center;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  width: 70%;
+  width: 40%;
   max-height: 50%;
   overflow-y: auto;
   display: flex;
   flex-wrap: wrap;
+  
 }
 
 .column {
@@ -93,37 +123,33 @@ text-align: center;
 
 .column input {
   width: 100%;
-  padding: 8px;
+  padding: 20px;
   box-sizing: border-box;
 }
 
 .popup button {
-  background-color: #28a745; /* Green color, you can change it */
+  background-color: #137077; 
   color: white;
   padding: 10px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
   margin-top: 15px;
-  margin-left: 90%;
+margin-left: 63%;
 }
 
 
 
 .popup button.cancel-button {
-  background-color: #dc3545; /* Red color for cancel button */
+  background-color: #dc3545; 
   color: white;
   padding: 10px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
   margin-top: 15px;
-  margin-right: 10px; /* Adjust the margin as needed */
+  margin-left: 79%;
 }
 
-.table-container {
 
-width: 70%; 
- overflow-y: auto; /* Enable vertical scrollbar when content overflows */
-}
 
