@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const invoiceSchema = new mongoose.Schema({
   paymentIntentId: { type: String, required: true },
   amount: { type: Number, required: true },

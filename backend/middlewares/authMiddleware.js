@@ -1,27 +1,33 @@
 const jwt = require('jsonwebtoken');
 const { secretKey } = require('../config');
+const User = require('../models/userModel');
 
-const authenticateUser = (req, res, next) => {
-  const token = req.headers.authorization;
+const authMiddleware = async (req, res, next) => {
+  const token = req.cookies.token ;
 
   if (!token) {
-    return res.status(401).json({ error: 'Unauthorized: Token not provided' });
+    return res.status(401).json({ error: 'Unauthorized - No token provided' });
   }
 
-  jwt.verify(token, secretKey, (err, decodedToken) => {
-    if (err) {
-      return res.status(401).json({ error: 'Unauthorized: Invalid token' });
+  try {
+    const decoded = jwt.verify(token, secretKey);
+    const user = await User.findById(decoded.userId);
+   
+    if (!user) {
+      return res.status(401).json({ error: 'Unauthorized - Invalid token' });
     }
-    req.user = decodedToken;
+
+    if (!user.isAdmin) {
+      return res.status(403).json({ error: 'Forbidden - Admin access required' });
+    }
+
+    req.isAdmin = true;
+
     next();
-  });
-};
-
-const isAdminAuthenticated = (req, res, next) => {
-  if (!req.user || !req.user.isAdmin) {
-    return res.status(403).json({ error: 'Forbidden: Admin access required' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
   }
-  next();
 };
 
-module.exports = { authenticateUser, isAdminAuthenticated };
+module.exports = authMiddleware;

@@ -2,12 +2,11 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const land=require('./routes/lands')
+const cookieParser = require('cookie-parser');
 const routes = require('./routes/routes');
 const Subscription=require ('./routes/subscription')
 const loggerMiddleware = require('./middlewares/loggerMiddleware');
-const paymentRoutes = require('./routes/paymentRoutes');
-const bill =require ('./routes/bill')
+// const bill =require ('./routes/bill');
 const mongoString = process.env.DATABASE_URL;
 mongoose.connect(mongoString);
 
@@ -24,15 +23,13 @@ database.once('connected', () => {
 
 const app = express();
 const port = process.env.PORT || 7000;
-
-
+app.use(cookieParser());
 app.use(loggerMiddleware);
-app.use(cors());
+app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 app.use(express.json());
 
-app.use('/api', paymentRoutes);
-app.use('/api/bill',bill)
-app.use('/api',routes,land ,Subscription);
+// app.use('/api/bill',bill)
+app.use('/api',routes ,Subscription);
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });

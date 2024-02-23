@@ -20,6 +20,7 @@ const landSchema = new mongoose.Schema({
   OtherNumbers: { type: String, required: true },
     address: { type: String, required: true },
   status: { type: String, enum: ['Available', 'Not Available'], default: 'Available' }, 
+  ispost:{type:Boolean,default:false},
   timestamps: {
     type: String,
     default: () => moment().format('YYYY-MM-DD HH.mmA'),

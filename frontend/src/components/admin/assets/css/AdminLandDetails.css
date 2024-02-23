@@ -37,9 +37,9 @@ text-align: center;
 
 
 .land-details-table {
-  width: 100%;
+  width: 70%;
   border-collapse: collapse;
-  overflow-x: auto;
+  margin-left: 18%;
 }
 
 .land-details-table th,
@@ -75,12 +75,6 @@ text-align: center;
   overflow-x: auto; 
 }
 
-
-
-
-
-
-
 .land-details-table .actions button {
   margin-right: 5px;
 }
@@ -102,7 +96,7 @@ text-align: center;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  width: 40%;
+  width: 25%;
   max-height: 50%;
   overflow-y: auto;
   display: flex;
@@ -110,46 +104,29 @@ text-align: center;
   
 }
 
-.column {
-  margin-bottom: 15px;
 
-  flex: 0 0 48%;
-}
 
-.column label {
-  display: block;
-  margin-bottom: 5px;
-}
 
-.column input {
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-}
 
 .popup button {
   background-color: #137077; 
   color: white;
-  padding: 10px;
+  padding: 15px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
   margin-top: 15px;
-margin-left: 63%;
+  margin-left: 25%;
+}
+
+.editeform input{
+  width: auto;
+  font-size: large;
+  /* height: 10%; */
+
 }
 
 
-
-.popup button.cancel-button {
-  background-color: #dc3545; 
-  color: white;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-top: 15px;
-  margin-left: 79%;
-}
 
 
 
