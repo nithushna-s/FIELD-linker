@@ -145,9 +145,7 @@
   height: 30vh;
 }
 
-.card1:hover {
-  transform: translateY(-5px);
-}
+
 
 .icon-wrapper {
   background-color: #137077;
@@ -159,6 +157,16 @@
   justify-content: center;
   align-items: center;
   margin: 0 auto 20px;
+}
+.card1:hover {
+  background-color: #137077; 
+  transform: translateY(-5px) scale(1.02); 
+  color: white; 
+
+}
+.card1:hover .icon-wrapper {
+  background-color: #ffffff; 
+  color: #137077;
 }
 
 @media screen and (max-width: 768px) {

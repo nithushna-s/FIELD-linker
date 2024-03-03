@@ -8,7 +8,7 @@ const AdminRentalList = () => {
   useEffect(() => {
     const fetchRentalDetails = async () => {
       try {
-        const response = await axios.get('http://localhost:7000/api/admin/rental-details',{withCredentials:true});
+        const response = await axios.get('http://localhost:7001/api/admin/rental-details',{withCredentials:true});
         setRentalDetails(response.data);
       } catch (error) {
         console.error('Error fetching rental details:', error);

@@ -3,8 +3,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import PaymentForm from './Payment'; 
 
-// Load Stripe with your publishable key
-const stripePromise = loadStripe('pk_test_51OmWslAAFgyPeqSnlHI32kzvytpl33SrqbSYGXr1CG3M0Knkg7FzHmaSgnde5wHFnRHykBdmODgh0K2RQtnFSnkA00VWwC5vob');
+const stripePromise = loadStripe('pk_test_51Oomx3GUJNDaDPYQbQyC2v4Rv4hugaqxIslqFbJvG7XsLK9X2DTdq0XjLsOYB68OxeYugd2RjMJSXXmNO68MG4Ge00xHctJzbP');
 
 const PaymentHead = () => {
   return (
@@ -13,5 +12,4 @@ const PaymentHead = () => {
     </Elements>
   );
 };
-
 export default PaymentHead;

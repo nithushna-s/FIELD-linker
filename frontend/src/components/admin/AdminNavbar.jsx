@@ -1,13 +1,15 @@
 import React, { useState ,useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import favicon from '../Assets/image/logo.png';
-
+import axios from 'axios';
 
 const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [activeLink, setActiveLink] = useState('');
+  const navigate = useNavigate();
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
@@ -35,6 +37,22 @@ const Navbar = () => {
     setActiveLink('');
   };
 
+  const handleLogout = async () => {
+    try {
+      await axios.post('http://localhost:7001/api/logout');
+            document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      localStorage.removeItem('token'); 
+      toast.success('Logout successful!');
+
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 2000); 
+    } catch (error) {
+      console.error('Error during logout:', error);
+      toast.error('An error occurred during logout. Please try again.');
+    }
+  };
+  
   const navbarStyle = {
     backgroundColor: 'white',
     color: 'black',
@@ -51,7 +69,6 @@ const Navbar = () => {
     fontFamily: 'sans-serif' ,
      height:'10vh',
     fontSize:'1.2em'
-
   };
 
   const brandStyle = {
@@ -114,35 +131,13 @@ const Navbar = () => {
   const responsiveLinksOpenStyle = {
     display: 'block',
   };
-  const handleLogout = async () => {
-    try {
-      const response = await fetch('http://localhost:7000/api/logout', {
-        method: 'POST',
-      });
-  
-      if (response.ok) {
-        toast.success('Logout successful!'); 
-        setTimeout(() => {
-          window.location.href = '/'; 
-        }, 2000); 
-        console.log('Logout submitted');
-      } else {
-        const errorData = await response.json();
-        toast.error('Error during logout:', errorData);
-      }
-    } catch (error) {
-      toast.error('Error during logout:', error);
-    }
-  };
-  
+
   return (
     <div>
       <nav style={navbarStyle}>
         <div style={brandStyle}>
-        <img src={favicon} height={70} />
-          <span style={logoStyle}>
-           
-          </span>
+          <img src={favicon} height={70} alt="Logo" />
+          <span style={logoStyle}></span>
           <button style={toggleStyle} onClick={toggleNav}>
             &#9776;
           </button>
@@ -154,7 +149,7 @@ const Navbar = () => {
             onMouseLeave={handleLinkLeave}
           >
             <a href="/admin/Dashboard" style={activeLink === 'home' ? { ...linkStyle, ...hoverLinkStyle } : linkStyle}>
-            Dashboard
+              Dashboard
             </a>
           </li>
           <li
@@ -163,7 +158,7 @@ const Navbar = () => {
             onMouseLeave={handleLinkLeave}
           >
             <a href="/admin/userdetailse" style={activeLink === 'about' ? { ...linkStyle, ...hoverLinkStyle } : linkStyle}>
-            Customers
+              Customers
             </a>
           </li>
           <li
@@ -172,7 +167,7 @@ const Navbar = () => {
             onMouseLeave={handleLinkLeave}
           >
             <a href="/admin/LandDetails" style={activeLink === 'contact' ? { ...linkStyle, ...hoverLinkStyle } : linkStyle}>
-            LandPostDetails
+              LandPostDetails
             </a>
           </li>
           <li
@@ -181,39 +176,37 @@ const Navbar = () => {
             onMouseLeave={handleLinkLeave}
           >
             <a href="/admin/LandRentDetails" style={activeLink === 'login' ? { ...linkStyle, ...hoverLinkStyle } : linkStyle}>
-            LandRentDetails
+              LandRentDetails
             </a>
           </li>
-           <li
-            style={activeLink === ' AdminSalesList' ? { ...linkItemStyle, ...hoverLiStyle } : linkItemStyle}
-            onMouseOver={() => handleLinkHover(' AdminSalesList')}
+          <li
+            style={activeLink === 'AdminSalesList' ? { ...linkItemStyle, ...hoverLiStyle } : linkItemStyle}
+            onMouseOver={() => handleLinkHover('AdminSalesList')}
             onMouseLeave={handleLinkLeave}
           >
-            <a href="/admin/LandSalesList" style={activeLink === 'SubscriptionsList' ? { ...linkStyle, ...hoverLinkStyle } : linkStyle}>
-            LandSalesList
+            <a href="/admin/LandSalesList" style={activeLink === 'AdminSalesList' ? { ...linkStyle, ...hoverLinkStyle } : linkStyle}>
+              LandSalesList
             </a>
           </li>
+          
           <li
             style={activeLink === 'SubscriptionsList' ? { ...linkItemStyle, ...hoverLiStyle } : linkItemStyle}
             onMouseOver={() => handleLinkHover('SubscriptionsList')}
             onMouseLeave={handleLinkLeave}
           >
-            <a href="/admin/SubscriptionsList" style={activeLink === 'SubscriptionsList' ? { ...linkStyle, ...hoverLinkStyle } : linkStyle}>
-            SubscriptionsList
+            <a href="/admin/PaymentsList" style={activeLink === 'SubscriptionsList' ? { ...linkStyle, ...hoverLinkStyle } : linkStyle}>
+            PaymentList
             </a>
           </li>
-          <li
-            onClick={handleLogout}
-            style={activeLink === 'login' ? { ...linkStyle, ...hoverLinkStyle } : linkStyle}          >
-            <a  >
-              Log-out
-            </a>
-         </li>
+          <li>
+            <button onClick={handleLogout} style={activeLink === 'login' ? { ...linkStyle, ...hoverLinkStyle } : linkStyle}>
+            Sign-Out
+            </button>
+          </li>
         </ul>
       </nav>
       <div ></div>
       <ToastContainer />
-
     </div>
   );
 };

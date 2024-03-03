@@ -1,19 +1,16 @@
-import React from 'react';
-import Navbar from './nav';
-import WelcomeSection from './WelcomeSection';
-import ContactForm from './ContactForm';
-import Footer from './Footer';
+import React from "react";
+import Navbar from "./nav";
+import WelcomeSection from "./WelcomeSection";
+import ContactForm from "./ContactForm";
+import Footer from "./Footer";
 const Home = () => {
-  
   return (
     <div>
-       <Navbar/>
+      <Navbar />
       <WelcomeSection />
       <ContactForm />
-  
 
       <Footer />
-
     </div>
   );
 };

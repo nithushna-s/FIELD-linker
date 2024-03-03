@@ -3,6 +3,8 @@ import axios from 'axios';
 import Navbar from '../home/nav';
 import Footernext from '../home/abouthefooter';
 import PaymentForm from '../post-land-ad/PaymentHead'; 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const PostAdForm = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +13,7 @@ const PostAdForm = () => {
     location: '',
     landSize: '',
     rentOrLeasePrice: '',
-    waterDetails: '',
+    waterDetails: 'Available',
     electricityStatus: 'Available',
     otherDetails: '',
     image: null,
@@ -22,7 +24,8 @@ const PostAdForm = () => {
     address: '',
   });
   const [submitted, setSubmitted] = useState(false); 
-
+  const [loading, setLoading] = useState(false);
+  
   const handleChange = (e) => {
     const { name, value, files, type, checked } = e.target;
     setFormData((prevData) => ({
@@ -33,6 +36,7 @@ const PostAdForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const formDataToSend = new FormData();
@@ -40,16 +44,19 @@ const PostAdForm = () => {
         formDataToSend.append(key, formData[key]);
       }
 
-      const response = await axios.post('http://localhost:7000/api/lands', formDataToSend);
+      const response = await axios.post('http://localhost:7001/api/lands', formDataToSend);
 
       if (response.status === 201) {
+        localStorage.setItem('landId', response.data._id); 
         setSubmitted(true); 
       } else {
-        alert('Form submission failed. Please try again.');
+        toast.error('Form submission failed. Please try again.');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
-      alert('An error occurred. Please try again later.');
+      toast.error('An error occurred. Please try again later.');
+    } finally {
+      setLoading(false); 
     }
   };
 
@@ -75,12 +82,12 @@ const PostAdForm = () => {
     < >
       <Navbar />
 
-      <div className="container  justify-content-center align-items-center" style={{fontFamily:'Poppins', fontSize:'1.1rem',marginBottom:'5%',marginTop:'6%', }}>       
+      <div className="container  justify-content-center align-items-center" style={{fontFamily:'Raleway', fontSize:'1.1rem',marginBottom:'5%',marginTop:'6%', }}>       
       {!submitted ? ( <form
           id="regForm"
           encType="multipart/form-data"
           onSubmit={handleSubmit}
-          action="http://localhost:7000/api/lands"
+          action="http://localhost:7001/api/lands"
           method="POST"
           className="p-4 rounded shadow-lg"
        style={{ maxWidth: '70vw', border: '1px solid #ccc', }} 
@@ -101,7 +108,7 @@ const PostAdForm = () => {
                 <label htmlFor="rentOrLease" className="form-label">
                 Sale, Rent or Lease:
                 </label>
-                <select id="rentOrLease" name="rentOrLease" onChange={handleChange} value={formData.rentOrLease} required className="form-control">
+                <select id="rentOrLease" name="rentOrLease" onChange={handleChange} value={formData.rentOrLease} required className="form-control form-select">
                 <option value="Lease">Sale</option>
                   <option value="Rent">Rent</option>
                   <option value="Lease">Lease</option>
@@ -125,12 +132,15 @@ const PostAdForm = () => {
                 <label htmlFor="waterDetails" className="form-label">
                   Water Details:
                 </label>
-                <input type="text" id="waterDetails" name="waterDetails" onChange={handleChange} value={formData.waterDetails} required className="form-control" />
+                <select  id="waterDetails" name="waterDetails" onChange={handleChange} value={formData.waterDetails} required className="form-control form-select">
+                  <option value="Available">Available</option>
+                  <option value="Not Available">Not Available</option>
+                </select>
 
                 <label htmlFor="electricityStatus" className="form-label">
                   Electricity Status:
                 </label>
-                <select id="electricityStatus" name="electricityStatus" onChange={handleChange} value={formData.electricityStatus} required className="form-control">
+                <select id="electricityStatus" name="electricityStatus" onChange={handleChange} value={formData.electricityStatus} required className="form-control form-select">
                   <option value="Available">Available</option>
                   <option value="Not Available">Not Available</option>
                 </select>
@@ -198,9 +208,16 @@ const PostAdForm = () => {
                 <input type="text" id="address" name="address" onChange={handleChange} value={formData.address} required className="form-control" />
               </div>
               <div className="w-100 d-flex justify-content-end mb-3">
-              <button type="submit"  style={{padding:'3% 15%', backgroundColor: '#137077',color: 'white',cursor: 'pointer',borderRadius:'8%'}}>
-              Submit
-</button>
+              {loading ? (
+                <button type="button" className="btn" style={{ padding:'3% 15%', cursor: 'not-allowed', borderRadius:'8%', background: '#ccc' }}>
+                  <i className="fa fa-spinner fa-spin" style={{ marginRight: '5px' }}></i>
+                  Loading
+                </button>
+              ) : (
+                <button type="submit" className="btn" style={{ padding:'3% 15%', cursor: 'pointer', borderRadius:'8%', background: '#0A3C50' }}>
+                  Submit
+                </button>
+              )}
 
           </div>
             </div>
@@ -215,6 +232,8 @@ const PostAdForm = () => {
       </div>
       
       <Footernext/>
+      <ToastContainer />
+
     </>
   );
 };

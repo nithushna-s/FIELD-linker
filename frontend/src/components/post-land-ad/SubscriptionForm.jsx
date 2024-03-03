@@ -10,7 +10,7 @@ const SubscriptionForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:7000/api/subscriptions', { user, endDate, amountPaid });
+      const response = await axios.post('http://localhost:7001/api/subscriptions', { user, endDate, amountPaid });
       console.log(response.data);
       // Handle success
     } catch (error) {

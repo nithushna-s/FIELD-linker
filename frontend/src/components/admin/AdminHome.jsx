@@ -9,7 +9,7 @@ import AdminLandRentDetails from './AdminLandRentDetails';
 import CreateLand from './creatland'
 import  AdminSalesList from './AdminSalesList'
 import Charts from './Charts';
-import SubscriptionsList from './SubscriptionsList';
+import SubscriptionsList from './InvoiceDetails';
 const AdminHome = () => {
   return (
     <div>
@@ -21,7 +21,7 @@ const AdminHome = () => {
         <Route path="/CreateLand" element={<CreateLand />} />
         <Route path="/Dashboard" element={<Charts/>} />
         <Route path="/LandSalesList" element={< AdminSalesList/>} />
-        <Route path="/SubscriptionsList" element= {<SubscriptionsList />}/>
+        <Route path="/PaymentsList" element= {<SubscriptionsList />}/>
       </Routes>
     </div>
   );

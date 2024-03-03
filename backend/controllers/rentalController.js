@@ -1,6 +1,6 @@
-const nodemailer = require('nodemailer');
-const Land = require('../models/landModels');
-const Rental = require('../models/Rental');
+const nodemailer = require("nodemailer");
+const Land = require("../models/landModels");
+const Rental = require("../models/Rental");
 
 const submitRentalForm = async (req, res) => {
   try {
@@ -24,7 +24,7 @@ const submitRentalForm = async (req, res) => {
 
     // Create a nodemailer transporter
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      service: "gmail",
       auth: {
         user: process.env.GMAIL_USER,
         pass: process.env.GMAIL_PASS,
@@ -33,18 +33,18 @@ const submitRentalForm = async (req, res) => {
 
     // Email options
     const mailOptions = {
-      from: 'sivarasanithushna@gmail.com',
+      from: "sivarasanithushna@gmail.com",
       to: email,
-      subject: 'Land Rental Form Submission',
+      subject: "Land Rental Form Submission",
       text: `Name: ${name} - Success sending your request. Will be in contact soon`,
     };
 
     await transporter.sendMail(mailOptions);
 
-    res.status(201).json({ message: 'Rental form submitted successfully' });
+    res.status(201).json({ message: "Rental form submitted successfully" });
   } catch (error) {
-    console.error('Error submitting rental form:', error);
-    res.status(500).json({ error: 'Error submitting rental form' });
+    console.error("Error submitting rental form:", error);
+    res.status(500).json({ error: "Error submitting rental form" });
   }
 };
 
@@ -61,8 +61,8 @@ const getAdminRentalDetails = async (req, res) => {
 
     res.status(200).json(rentalDetails);
   } catch (error) {
-    console.error('Error fetching rental details:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error("Error fetching rental details:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 };
 

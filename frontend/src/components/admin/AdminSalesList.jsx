@@ -7,7 +7,7 @@ const AdminSalesList = () => {
   useEffect(() => {
     const fetchSalesDetails = async () => {
       try {
-        const response = await axios.get('http://localhost:7000/api/admin/sales-details',{withCredentials:true});
+        const response = await axios.get('http://localhost:7001/api/admin/sales-details',{withCredentials:true});
         const reversedSalesDetails = response.data.reverse();
         setSalesDetails(reversedSalesDetails);
       } catch (error) {

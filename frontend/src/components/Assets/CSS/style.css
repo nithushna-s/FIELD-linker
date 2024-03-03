@@ -3,7 +3,7 @@
 :root {
 
  
-  --dark-jungle-green: hsl(188, 63%, 7%);
+  --dark-jungle-green: #1E2C25;
 
  
  
@@ -15,7 +15,7 @@
   --seashell: hsl(8, 100%, 97%);
   --cadet: hsl(200, 15%, 43%);
   --white: hsl(0, 0%, 100%);
-  --black: hsl(0, 0%, 0%);
+  --black: #1E2C25;
   --opal: hsl(180, 20%, 62%);
 
 
@@ -46,18 +46,12 @@
 
  
 
-  --shadow-1: 0 5px 20px 0 hsla(219, 56%, 21%, 0.1);
-  --shadow-2: 0 16px 32px hsla(188, 63%, 7%, 0.1);
+  --shadow-1: 0 5px 20px 0 #1E2C25;
+  --shadow-2: 0 16px 32px #1E2C25;
 
 }
 
 
-
-
-
-/*-----------------------------------*\
-  #RESET
-\*-----------------------------------*/
 
 *, *::before, *::after {
   margin: 0;
@@ -291,7 +285,7 @@ height: 50vh;
 \*-----------------------------------*/
 
 .footer {
-  background: var(--raisin-black-1);
+  background: 'linear-gradient(to right, #137077, #0D7377 )';
   color: var(--white);
   margin-bottom: 68px;
 }

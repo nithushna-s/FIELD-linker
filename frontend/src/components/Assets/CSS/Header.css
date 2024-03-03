@@ -22,8 +22,8 @@
   
     --dark-jungle-green: hsl(188, 63%, 7%);
     --prussian-blue: hsl(200, 69%, 14%);
-    --raisin-black-1: hsl(227, 29%, 13%);
-    --raisin-black-2: hsl(229, 17%, 19%);
+    --raisin-black-1: #1E2C25;
+    --raisin-black-2: #1E2C25;
     --yellow-green: hsl(89, 72%, 45%);
     --orange-soda: hsl(9, 100%, 62%);
     --cultured-1: hsl(0, 0%, 93%);
@@ -33,7 +33,7 @@
     --seashell: hsl(8, 100%, 97%);
     --cadet: hsl(200, 15%, 43%);
     --white: hsl(0, 0%, 100%);
-    --black: hsl(0, 0%, 0%);
+    --black: #1E2C25;
     --opal: hsl(180, 20%, 62%);
   
     /**
@@ -71,8 +71,8 @@
      * shadow
      */
   
-    --shadow-1: 0 5px 20px 0 hsla(219, 56%, 21%, 0.1);
-    --shadow-2: 0 16px 32px hsla(188, 63%, 7%, 0.1);
+    --shadow-1: 0 5px 20px 0 #1E2C25;
+    --shadow-2: 0 16px 32px #1E2C25;
   
   }
   
@@ -353,7 +353,7 @@
     max-width: 300px;
     width: 100%;
     height: 100%;
-    box-shadow: 0 3px 10px hsla(0, 0%, 0%, 0.3);
+    box-shadow: 0 3px 10px #1E2C25;
     z-index: 5;
     padding: 60px 20px;
     visibility: hidden;
@@ -396,7 +396,7 @@
   .overlay {
     position: fixed;
     inset: 0;
-    background: hsla(0, 0%, 0%, 0.7);
+    background: #1E2C25;
     opacity: 0;
     pointer-events: none;
     transition: var(--transition);
@@ -422,7 +422,7 @@
   }
   
   .header-bottom-actions-btn ion-icon {
-    color: hsl(0, 0%, 10%);
+    color: #1E2C25;
     font-size: 20px;
     margin-inline: auto;
     margin-bottom: 5px;
@@ -553,7 +553,7 @@
   }
   
   .about .callout {
-    background: hsla(7, 78%, 53%, 0.05);
+    background: #1E2C25;
     color: var(--cadet);
     font-size: var(--fs-5);
     font-weight: var(--fw-500);
@@ -673,7 +673,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, hsla(0, 0%, 0%, 0.95), transparent 30%);
+    background: linear-gradient(to top, #1E2C25, transparent 30%);
     pointer-events: none;
     z-index: 1;
   }
@@ -708,7 +708,7 @@
   
   .property-card .card-content {
     padding: 30px 15px 15px;
-    border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
+    border-bottom: 1px solid #1E2C25;
   }
   
   .card-price {
@@ -752,7 +752,7 @@
   
   .property-card .card-item:not(:last-child) {
     padding-right: 15px;
-    border-right: 1px solid hsla(0, 0%, 0%, 0.2);
+    border-right: 1px solid #1E2C25;
     margin-right: 20px;
   }
   
@@ -898,7 +898,7 @@
     place-items: center;
     font-size: 20px;
     border-radius: 50%;
-    box-shadow: 0 0 10px hsla(219, 56%, 21%, 0.1);
+    box-shadow: 0 0 10px #1E2C25;
     transition: var(--transition);
   }
   
@@ -961,7 +961,7 @@
   
   .blog-content-bottom {
     padding-top: 20px;
-    border-top: 1px solid hsla(0, 0%, 0%, 0.1);
+    border-top: 1px solid #1E2C25;
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
